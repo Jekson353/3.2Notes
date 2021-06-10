@@ -68,16 +68,18 @@ object Notepad {
     }
 
     fun deleteComment(id: Int): Boolean {
-        for ((index, comment) in comments.withIndex()) {
-            if (index == id) {
-                val deleteComment = comment.copy(
-                        isDelete = true
-                )
-                comments[index] = deleteComment
-                return true
+        getComments(id).let {
+            for ((index, comment) in comments.filter { !it.isDelete }.withIndex()) {
+                if (index == id) {
+                    val deleteComment = comment.copy(
+                            isDelete = true
+                    )
+                    comments[index] = deleteComment
+                    return true
+                }
             }
+            return false
         }
-        return false
     }
 
     fun edit(idEdit: Int, newNote: Notes): Notes {

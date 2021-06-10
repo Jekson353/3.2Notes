@@ -46,9 +46,9 @@ fun main() {
 
     println("Редактирование комментария: " + Notepad.editComment(0, editedComment))
     println("Удаление комментария: " + Notepad.deleteComment(0))
-    println("Удаление комментария: " + Notepad.getComments(0))
     println("Восстановление комментария: " + Notepad.restoreComment(0))
-    println("Удаление комментария: " + Notepad.getComments(0))
+    println("Удаление комментария: " + Notepad.deleteComment(0))
+    println("Повторное удаление комментария: " + Notepad.deleteComment(0))
 
     //println(Notepad.getById(120))
 
